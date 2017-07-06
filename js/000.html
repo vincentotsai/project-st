@@ -1,0 +1,36 @@
+<div class="content-title">
+  同义词库管理
+</div>
+<div class="content-body">
+  <div class="row">
+    <div class="col-md-12" style="margin-bottom:15px;">
+      <input class="col-md-6" ng-model="synonym" ng-model-options="{ debounce: 300 }" ng-change="search()" placeholder="搜索同义词"/>
+    </div>
+
+    <div ng-if="true" class="col-md-12">
+      <table>
+        <thead>
+          <tr>
+            <th>同义词</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in list">
+            <td ng-bind="item"></td>
+            <td>
+              <a href="javascript:void(0);" title="编辑" ng-click="edit($index, item)">
+							<span class="fa fa-edit">编辑</span>
+						</a>&nbsp;&nbsp;
+              <a href="javascript:void(0);" title="删除" ng-click="remove($index)">
+							<span class="fa fa-remove text-danger">删除</span>
+						</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="left floated small ui button green" ng-click="add()"><span class="fa fa-plus"></span></div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="./public/bower_components/jquery/dist/jquery.js"></script>
+  <title>jquery test</title>
+</head>
+<body>
+<script>
+  function getData() {
+    var deferred = $.Deferred();
+    setTimeout(function() {
+      deferred.resolve(console.log('data1'))
+    }, Math.random()*100);
+
+    return deferred.promise();
+  }
+
+  function B() {
+    var deferred = $.Deferred();
+    setTimeout(function() {
+      deferred.resolve(console.log('data2'))
+    }, Math.random()*100);
+
+    return deferred.promise();
+  }
+
+  function C() {
+    setTimeout(function() {
+      console.log('data3')
+    }, Math.random()*100);
+  }
+
+  getData().then(B).then(C);
+</script>
+</body>
+</html>

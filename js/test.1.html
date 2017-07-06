@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="./public/bower_components/angular/angular.js"></script>
+  <title>angular test</title>
+</head>
+<body>
+<script>
+  window.alert($q)
+  
+  function getData() {
+    var d = $q.defer();
+    setTimeout(function() {
+      d.resolve(console.log('data1'))
+    }, Math.random()*100);
+
+    return d.promise;
+  }
+
+  function B() {
+    var d = $q.defer();
+    setTimeout(function() {
+      d.resolve(console.log('data2'))
+    }, Math.random()*100);
+
+    return d.promise;
+  }
+
+  function C() {
+    setTimeout(function() {
+      console.log('data3')
+    }, Math.random()*100);
+  }
+
+  getData().then(B).then(C);
+</script>
+</body>
+</html>
