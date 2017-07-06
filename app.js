@@ -25,21 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', index);
 app.use('/users', users);
 
-// 匹配根路径的请求
-app.get('/', function (req, res) {
-  res.send('root');
-});
-
-// 匹配 /about 路径的请求
-app.get('/about', function (req, res) {
-  res.send('about');
-});
-
-// 匹配 /random.text 路径的请求
-app.get('/random.text', function (req, res) {
-  res.send('random.text');
-});
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
